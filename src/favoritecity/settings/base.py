@@ -7,10 +7,15 @@ from favoritecity.settings.env_identifier import *   # import os here
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 PROJECT_PATH = BASE_DIR.parent
 
+# PROJECT_PATH = os.environ.get('PROJECT_ROOT')
+# BASE_DIR = os.path.join(PROJECT_PATH, 'src')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 ALLOWED_HOSTS = []
+
+AUTH_USER_MODEL = "accounts.User"
 
 # Application definition
 
@@ -21,6 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # own
+    "favoritecity.accounts",
 ]
 
 MIDDLEWARE = [
