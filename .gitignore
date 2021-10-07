@@ -1,0 +1,8 @@
+dj_env/
+.idea/
+*.pyc
+#src/favoritecity/settings/settings_local.py
+settings_local.py
+.env
+static_content/
+#database_sqlite/
