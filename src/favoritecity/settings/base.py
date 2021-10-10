@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # own
     "favoritecity.accounts",
+    "favoritecity.ads"
 ]
 
 MIDDLEWARE = [
