@@ -38,9 +38,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'favoritecity.urls'
 
+TEMPLATE_DIR = os.path.join(BASE_DIR, "favoritecity", "templates")
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # 'DIRS': [TEMPLATE_DIR],
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -100,7 +102,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_PATH, "static_content", "static")
-# STATIC_DIR = os.path.join(BASE_DIR, "static")
+# STATIC_DIR = os.path.join(BASE_DIR, "favoritecity", "static")
 # STATICFILES_DIRS = (STATIC_DIR,)
 
 MEDIA_URL = "/media/"
