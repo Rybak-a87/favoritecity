@@ -1,14 +1,9 @@
-from pathlib import Path
-
-from favoritecity.settings.env_identifier import *   # import os here
+from favoritecity.settings.env_identifier import *   # import (os, Path) here
+from favoritecity.settings.database import connect_database
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-PROJECT_PATH = BASE_DIR.parent
-
-# PROJECT_PATH = os.environ.get('PROJECT_ROOT')
-# BASE_DIR = os.path.join(PROJECT_PATH, 'src')
+BASE_DIR = os.path.join(PROJECT_PATH, 'src')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -64,14 +59,7 @@ WSGI_APPLICATION = 'favoritecity.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': PROJECT_PATH / "database_sqlite" / "db.sqlite3",
-        "NAME": os.path.join(PROJECT_PATH, "database_sqlite", "db.sqlite3"),
-    }
-}
-
+# DATABASES = connect_database(project_path=PROJECT_PATH)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -121,3 +109,6 @@ MEDIA_ROOT = os.path.join(PROJECT_PATH, "static_content", "media")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if DEBUG:
+    from favoritecity.settings.settings_local import *
