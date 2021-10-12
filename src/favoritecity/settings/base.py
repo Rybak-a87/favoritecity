@@ -113,5 +113,6 @@ MEDIA_ROOT = os.path.join(PROJECT_PATH, "static_content", "media")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# TODO need fixed, this not correct
 if DEBUG:
     from favoritecity.settings.settings_local import *

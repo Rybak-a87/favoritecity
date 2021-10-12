@@ -1,0 +1,6 @@
+Django
+Pillow
+django-debug-toolbar
+psycopg2
+gunicorn
+python-slugify

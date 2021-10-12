@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.text import slugify
+from slugify import slugify
 from django.contrib.auth import get_user_model
 
 from favoritecity.ads import choises as mch
@@ -40,11 +40,12 @@ class Utils(models.Model):
 
 
 class Advent(models.Model):
-    title = models.CharField(max_length=255, verbose_name="")
+    title = models.CharField(max_length=255, verbose_name="Название")
     category = models.ForeignKey(Category, verbose_name="Категория", on_delete=models.CASCADE)   # TODO?
     district = models.PositiveSmallIntegerField(verbose_name="Район", choices=mch.DISTRICT_CHOICE)   # TODO?
     user = models.ForeignKey(User, verbose_name="Пользователь", on_delete=models.CASCADE)
     utils = models.ManyToManyField(Utils, verbose_name="Удобства", blank=True)
+    address = models.CharField(max_length=255, verbose_name="Адрес")
     description = models.TextField(verbose_name="Описание", blank=True)
     price_per = models.PositiveSmallIntegerField(verbose_name="Цена за", choices=mch.PRICE_PER_CHOICE)
     price = models.DecimalField(verbose_name="Цена (грн.)", max_digits=7, decimal_places=2)
