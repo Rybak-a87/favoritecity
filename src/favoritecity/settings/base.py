@@ -12,18 +12,33 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "accounts.User"
 
-# Application definition
+# new admin panel (migrate dashboard and migrate jet)
+ENABLE_JET_ADMIN = True
+JET_ADMIN_APPS = [
+    # new admin panel (migrate dashboard and migrate jet)
+    "jet.dashboard",
+    "jet",
+] if ENABLE_JET_ADMIN else []
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # own
+]
+
+OWN_APPS = [
     "favoritecity.accounts",
     "favoritecity.ads"
+]
+
+# Application definition
+INSTALLED_APPS = [
+    *JET_ADMIN_APPS,
+    *DJANGO_APPS,
+    *OWN_APPS,
 ]
 
 MIDDLEWARE = [

@@ -4,7 +4,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+admin.site.site_header = 'Favorite City'
+
+jet_admin_panel_urlpatterns = [
+    path("jet/", include("jet.urls", "jet")),
+    path("jet/dashboard/", include("jet.dashboard.urls", "jet-dashboard")),
+] if settings.ENABLE_JET_ADMIN else []
+
 urlpatterns = [
+    *jet_admin_panel_urlpatterns,
     path('admin/', admin.site.urls),
 ]
 
