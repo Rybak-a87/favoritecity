@@ -9,7 +9,7 @@ DATABASES = connect_database(project_path=settings.PROJECT_PATH)
 
 LANGUAGE_CODE = 'ru'
 
-# Tool bar
+# Toolbar
 # DEBUG_TOOLBAR_PATCH_SETTINGS = True
 settings.INSTALLED_APPS += ["debug_toolbar"]
 settings.MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
