@@ -1,6 +1,6 @@
 Django
 Pillow
 django-debug-toolbar
-psycopg2
+psycopg2-binary
 gunicorn
 python-slugify
